@@ -50,6 +50,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Initialization environment
+        id: init
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -60,13 +61,10 @@ jobs:
           sudo -E apt-get -qq autoremove --purge
           sudo -E apt-get -qq clean
           sudo timedatectl set-timezone "$TZ"
-          sudo mkdir -p /workdir
-          sudo chown $USER:$GROUPS /workdir
 
       - name: Clone source code [ ${{ inputs.source_branch }} ]
         id: codes
-        working-directory: /workdir
-        if: ()
+        if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
           # Set up compilation source code
           if [[ "${{ inputs.source_branch }}" == *"openwrt"* ]]; then
