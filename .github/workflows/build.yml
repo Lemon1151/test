@@ -13,6 +13,15 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
+          - istoreos-22.03
+      rockchip_subtarget:
+        description: "Select rockchip subtarget"
+        required: false
+        default: "rk33xx"
+        type: choice
+        options:
+          - rk33xx
+          - rk35xx
       openwrt_board:
         description: "Select device board"
         required: false
@@ -38,6 +47,7 @@ env:
   DIY_P1_SH: config/${{ inputs.source_branch }}/diy-part1.sh
   DIY_P2_SH: config/${{ inputs.source_branch }}/diy-part2.sh
   SOURCE_BOARD: ${{ inputs.openwrt_board }}
+  SUBTARGET: ${{ inputs.rockchip_subtarget }}
   TZ: America/New_York
 
 jobs:
