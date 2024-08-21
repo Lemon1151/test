@@ -90,6 +90,10 @@ jobs:
               REPO_URL="https://github.com/immortalwrt/immortalwrt"
               REPO_BRANCH="master"
               TAGS_NAME="immortalwrt"
+          elif [[ "${{ inputs.source_branch }}" == *"istoreos"* ]]; then
+              REPO_URL="https://github.com/istoreos/istoreos"
+              REPO_BRANCH="22.03"
+              TAGS_NAME="istoreos" 
           else
               echo "Unknown source code repository."
               exit 1
