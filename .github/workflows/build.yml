@@ -28,10 +28,11 @@ on:
         default: "all"
         type: choice
         options:
-          - fine3399
-          - tb-ls3399
-          - tpm312
-          - xiaobao
+          - friendlyarm_nanopi-r4s
+          - rockchip_fine3399
+          - rockchip_tb-ls3399
+          - rockchip_tpm312
+          - rockchip_xiaobao-nas
       openwrt_storage:
         description: "Select image storage type."
         required: false
