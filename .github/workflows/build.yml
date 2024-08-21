@@ -174,4 +174,4 @@ jobs:
           allowUpdates: true 
           removeArtifacts: false 
           replacesArtifacts: true 
-          token: ${{ secrets.MY_TOKEN }}
+          token: ${{ secrets.OPWRT_TOKEN }}
