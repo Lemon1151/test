@@ -34,7 +34,7 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
   
 # 假设这些变量是从环境变量或命令行参数中获取的  
 rockchip_subtarget="${1:-rk33xx}"  # 如果没有提供，默认为 rk33xx  
-openwrt_board="${2:-friendlyarm_nanopi-r4s}"       # 如果没有提供，默认为 friendlyarm_nanopi-r4s  
+openwrt_board="${2:-friendlyarm_nanopi-r4se}"       # 如果没有提供，默认为 friendlyarm_nanopi-r4se 
   
 # 配置文件路径（这里假设它是相对于脚本的某个位置）  
 config_file=.config  # 请替换为实际的文件路径  
