@@ -13,7 +13,7 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
-          - istoreos-22.03
+          - istoreos-istoreos-22.03
       rockchip_subtarget:
         description: "Select rockchip subtarget"
         required: false
