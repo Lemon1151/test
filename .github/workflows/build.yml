@@ -131,6 +131,7 @@ jobs:
           chmod +x ${DIY_P2_SH}
           echo "Using SOURCE_BRANCH: ${{ inputs.source_branch }} in DIY_P2_SH" 
           cd openwrt/
+          ls -la
           ${GITHUB_WORKSPACE}/${DIY_P2_SH}
 
       - name: Download package
