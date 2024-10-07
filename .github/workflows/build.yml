@@ -179,4 +179,4 @@ jobs:
           allowUpdates: true 
           removeArtifacts: false 
           replacesArtifacts: true 
-          token: ${{ secrets.OPWRT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
