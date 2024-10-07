@@ -21,7 +21,6 @@ on:
         type: choice
         options:
           - rk33xx
-          - rk35xx
       openwrt_board:
         description: "Select device board"
         required: false
