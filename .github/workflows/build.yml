@@ -180,4 +180,4 @@ jobs:
           allowUpdates: true 
           removeArtifacts: false 
           replacesArtifacts: true 
-          token: ${{ env.OPENWRT_TOKEN }}
+          token: ${{ secrets.OPENWRT_TOKEN }}
