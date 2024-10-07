@@ -129,7 +129,7 @@ jobs:
           [[ -d "files" ]] && mv -f files openwrt/files
           [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
           chmod +x ${DIY_P2_SH}
-          echo "Using SOURCE_BRANCH: $SOURCE_BRANCH in DIY_P2_SH" 
+          echo "Using SOURCE_BRANCH: ${{ inputs.source_branch }} in DIY_P2_SH" 
           cd openwrt/
           ${GITHUB_WORKSPACE}/${DIY_P2_SH}
 
