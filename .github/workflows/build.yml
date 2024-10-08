@@ -50,7 +50,6 @@ env:
   SOURCE_BOARD: ${{ inputs.openwrt_board }}
   SUBTARGET: ${{ inputs.rockchip_subtarget }}
   TZ: America/New_York
-  # GITHUB_TOKEN: ${{ secrets.OPENWRT_TOKEN }}
 
 jobs:
   build:
@@ -180,4 +179,4 @@ jobs:
           allowUpdates: true 
           removeArtifacts: false 
           replacesArtifacts: true 
-          token: ${{ secrets.OPENWRT_TOKEN }}
+          token: ${{ secrets.OP_TOKEN }}
