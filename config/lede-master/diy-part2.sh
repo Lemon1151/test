@@ -97,7 +97,13 @@ openwrt_board="${2:-friendlyarm_nanopi-r4se}"       # 如果没有提供，默�
   
 # 配置文件路径（这里假设它是相对于脚本的某个位置）  
 config_file=.config  # 请替换为实际的文件路径  
-  
+
+# 确认配置文件存在
+if [ ! -f "$config_file" ]; then
+    echo "Error: Configuration file not found: $config_file"
+    exit 1
+fi
+
 # 根据 subtarget 构建配置字符串  
 if [[ "$rockchip_subtarget" == "rk33xx" ]]; then  
     target_config="  
