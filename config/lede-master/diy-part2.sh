@@ -69,3 +69,18 @@ git clone --depth=1 https://github.com/destan19/OpenAppFilter
 #
 # ------------------------------- Other ends -------------------------------
 
+
+# uboot-rockchip/Makefile添加tpm312设备型号
+sed -i '/^# RK3566 boards/i\
+define U-Boot/tpm312-rk3399\n\  $(U-Boot/rk3399/Default)\n\  NAME:=TPM312\n\  BUILD_DEVICES:= \\\n\    rockchip_tpm312\n\  DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3399\n\  ATF:=rk3399_bl31.elf\n\endef\n' package/boot/uboot-rockchip/Makefile
+
+# linux/rockchip/image/armv8.mk添加tpm312设备型号
+echo -e "\\ndefine Device/rockchip_tpm312
+  DEVICE_VENDOR := Rockchip
+  DEVICE_MODEL := TPM312
+  SOC := rk3399
+  SUPPORTED_DEVICES := rockchip,tpm312
+  UBOOT_DEVICE_NAME := tpm312-rk3399
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+endef
+TARGET_DEVICES += rk3399_tpm312" >> target/linux/rockchip/image/armv8.mk
