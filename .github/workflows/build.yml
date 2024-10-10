@@ -158,7 +158,7 @@ jobs:
           # Clean up server space
           cd openwrt/
           [[ -d "output" ]] || mkdir output
-          cp -f bin/targets/rockchip/*/*squashfs-sysupgrade.img.gz output/
+          find bin/targets/rockchip/ -type f -name '*squashfs-sysupgrade.img.gz' -exec cp -f --parents {} output/ \;
           cp -f .config output/config
           rm -rf $(ls . | grep -v "^output$" | xargs) 2>/dev/null
 
