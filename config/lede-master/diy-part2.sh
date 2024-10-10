@@ -39,10 +39,10 @@ rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # Add linkease-istore
-# git clone https://github.com/linkease/istore.git package/istore
+git clone https://github.com/linkease/istore.git package/istore
 # Add nas-packages-luci
-# git clone https://github.com/linkease/nas-packages.git package/nas
-# git clone https://github.com/linkease/nas-packages-luci.git package/nas_luci
+git clone https://github.com/linkease/nas-packages.git package/nas
+git clone https://github.com/linkease/nas-packages-luci.git package/nas_luci
 
 # Add luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/passwall-packages
