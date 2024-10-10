@@ -84,3 +84,7 @@ echo -e "\\ndefine Device/rockchip_tpm312
   IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
 endef
 TARGET_DEVICES += rk3399_tpm312" >> target/linux/rockchip/image/armv8.mk
+
+# 复制patch到对应的目录
+cp -f $GITHUB_WORKSPACE/config/lede-master/etc/105-add-new-board-tpm312-uboot.patch package/boot/uboot-rockchip/patches/105-add-new-board-tpm312-uboot.patch
+cp -f $GITHUB_WORKSPACE/config/lede-master/etc/995-rockchip-rk3399-tpm312-kernel.patch target/linux/rockchip/patches-6.6/995-rockchip-rk3399-tpm312-kernel.patch
