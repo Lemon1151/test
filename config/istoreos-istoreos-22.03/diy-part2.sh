@@ -37,11 +37,6 @@ sed -i "s/wireless.radio\${devidx}.disabled=1/wireless.radio\${devidx}.disabled=
 rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 #
-# Add linkease-istore
-# git clone https://github.com/linkease/istore.git package/istore
-# Add nas-packages-luci
-# git clone https://github.com/linkease/nas-packages.git package/nas
-# git clone https://github.com/linkease/nas-packages-luci.git package/nas_luci
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
