@@ -44,15 +44,15 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 # ------------------------------- Other ends -------------------------------
 
 # linux/rockchip/image/armv8.mk添加tpm312设备型号
-echo -e "\\ndefine Device/rockchip_tpm312
-  DEVICE_VENDOR := Rockchip
-  DEVICE_MODEL := TPM312
+echo -e "\\ndefine Device/emb-3531
+  DEVICE_VENDOR := Norco
+  DEVICE_MODEL := EMB-3531
   SOC := rk3399
-  SUPPORTED_DEVICES := rockchip,tpm312
-  UBOOT_DEVICE_NAME := tpm312-rk3399
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  UBOOT_DEVICE_NAME := rk3399-emb-3531
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script nanopi-r4s | pine64-bin | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-r8168 -urngd
 endef
-TARGET_DEVICES += rk3399_tpm312" >> target/linux/rockchip/image/armv8.mk
+TARGET_DEVICES += emb-3531" >> target/linux/rockchip/image/armv8.mk
 
 # 复制patch到对应的目录
 cp -f $GITHUB_WORKSPACE/config/lede-master/etc/105-add-new-board-tpm312-uboot.patch package/boot/uboot-rockchip/patches/105-add-new-board-tpm312-uboot.patch
