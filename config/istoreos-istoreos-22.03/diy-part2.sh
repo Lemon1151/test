@@ -62,7 +62,7 @@ cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/110-add-board-emb3531
 mkdir -p /target/linux/rockchip/dts/rk3399
 cp -rf $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/* /target/linux/rockchip/dts/rk3399/
 cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/rk3399-emb-3531.dts /target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/
-cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/851-rockchip-rk3399-Add-support-emb-3531.patch target/linux/rockchip/patches-5.10/851-rockchip-rk3399-Add-support-emb-3531.patch
+cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/851-rockchip-rk3399-Add-support-emb-3531.patch target/linux/rockchip/patches-5.10/
 
 # 通过命令添加对应的架构板子名称到.config文件
 # 假设这些变量是从环境变量或命令行参数中获取的  
