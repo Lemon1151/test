@@ -60,8 +60,8 @@ cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/Makefile package/boot
 cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/110-add-board-emb3531-uboot.patch package/boot/uboot-rockchip/patches/110-add-board-emb3531-uboot.patch
 # 创建rk3399目录并复制dts/patch文件到rk3399目录
 mkdir -p /target/linux/rockchip/dts/rk3399
-cp -rf $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/* /target/linux/rockchip/dts/rk3399/
-cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/rk3399-emb-3531.dts /target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/
+cp -rf $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/* target/linux/rockchip/dts/rk3399/
+cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/rk3399-emb-3531.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/
 cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/851-rockchip-rk3399-Add-support-emb-3531.patch target/linux/rockchip/patches-5.10/
 
 # 通过命令添加对应的架构板子名称到.config文件
