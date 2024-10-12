@@ -1,10 +1,3 @@
---- a/arch/arm/dts/Makefile
-+++ b/arch/arm/dts/Makefile
-@@ -123,3 +123,4 @@ dtb-$(CONFIG_ROCKCHIP_RK3399) += \
-	rk3399-evb.dtb \
-+	rk3399-emb-3531.dtb \
-	rk3399-ficus.dtb \
-	rk3399-firefly.dtb \
 diff --git a/configs/emb-3531-rk3399_defconfig b/configs/emb-3531-rk3399_defconfig
 new file mode 100644
 --- /dev/null
