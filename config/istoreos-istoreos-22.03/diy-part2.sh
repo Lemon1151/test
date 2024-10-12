@@ -43,7 +43,7 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 #
 # ------------------------------- Other ends -------------------------------
 
-# linux/rockchip/image/armv8.mk添加tpm312设备型号
+# 添加emb-3531设备型号
 echo -e "\\ndefine Device/emb-3531
   DEVICE_VENDOR := Norco
   DEVICE_MODEL := EMB-3531
@@ -54,10 +54,14 @@ echo -e "\\ndefine Device/emb-3531
 endef
 TARGET_DEVICES += emb-3531" >> target/linux/rockchip/image/armv8.mk
 
-# 复制patch到对应的目录
-cp -f $GITHUB_WORKSPACE/config/lede-master/etc/105-add-new-board-tpm312-uboot.patch package/boot/uboot-rockchip/patches/105-add-new-board-tpm312-uboot.patch
-cp -f $GITHUB_WORKSPACE/config/lede-master/etc/995-rockchip-rk3399-tpm312-kernel.patch target/linux/rockchip/patches-6.6/995-rockchip-rk3399-tpm312-kernel.patch
-
+#复制修改好的Makefile到对应目录覆盖
+cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/Makefile package/boot/uboot-rockchip/Makefile
+# 复制uboot/patch到对应的目录
+cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/110-add-board-emb3531-uboot.patch package/boot/uboot-rockchip/patches/110-add-board-emb3531-uboot.patch
+# 创建rk3399目录并复制dts文件到rk3399目录
+mkdir -p /target/linux/rockchip/dts/rk3399
+cp -rf $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/* /target/linux/rockchip/dts/rk3399/
+cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/rk3399-emb-3531.dts /target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/
 
 # 通过命令添加对应的架构板子名称到.config文件
 # 假设这些变量是从环境变量或命令行参数中获取的  
