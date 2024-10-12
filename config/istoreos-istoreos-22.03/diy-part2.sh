@@ -79,7 +79,8 @@ fi
 
 # 根据 subtarget 构建配置字符串  
 if [[ "$rockchip_subtarget" == "rk33xx" ]]; then  
-    target_config="   
+    target_config="  
+CONFIG_TARGET_rockchip_armv8=y 
 CONFIG_TARGET_rockchip_armv8_DEVICE_$openwrt_board=y  
 CONFIG_TARGET_SUBTARGET=\"armv8\"  
 CONFIG_TARGET_PROFILE=\"DEVICE_$openwrt_board\"  
