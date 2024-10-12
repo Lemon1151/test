@@ -49,7 +49,7 @@ echo -e "\\ndefine Device/emb-3531
   DEVICE_MODEL := EMB-3531
   SOC := rk3399
   UBOOT_DEVICE_NAME := rk3399-emb-3531
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script nanopi-r4s | pine64-bin | gzip | append-metadata
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
   DEVICE_PACKAGES := kmod-r8168 -urngd
 endef
 TARGET_DEVICES += emb-3531" >> target/linux/rockchip/image/armv8.mk
