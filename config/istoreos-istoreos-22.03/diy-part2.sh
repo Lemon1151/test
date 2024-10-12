@@ -25,7 +25,7 @@
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
 #
 # 开启无线功能
-cp -f $GITHUB_WORKSPACE/config/lede-master/opwifi package/base-files/files/etc/init.d/opwifi
+cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/opwifi package/base-files/files/etc/init.d/opwifi
 chmod 755 package/base-files/files/etc/init.d/opwifi
 sed -i "s/wireless.radio\${devidx}.disabled=1/wireless.radio\${devidx}.disabled=0/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #
@@ -59,7 +59,7 @@ cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/Makefile package/boot
 # 复制uboot/patch到对应的目录
 cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/110-add-board-emb3531-uboot.patch package/boot/uboot-rockchip/patches/110-add-board-emb3531-uboot.patch
 # 创建rk3399目录并复制dts/patch文件到rk3399目录
-mkdir -p /target/linux/rockchip/dts/rk3399
+mkdir -p target/linux/rockchip/dts/rk3399
 cp -rf $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/* target/linux/rockchip/dts/rk3399/
 cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/rk3399/rk3399-emb-3531.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/
 cp -f $GITHUB_WORKSPACE/config/istoreos-istoreos-22.03/etc/851-rockchip-rk3399-Add-support-emb-3531.patch target/linux/rockchip/patches-5.10/
