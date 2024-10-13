@@ -28,7 +28,6 @@ on:
         type: choice
         options:
           - friendlyarm_nanopi-r4se
-          - norco_emb-3531
           - rockchip_fine3399
           - rockchip_tb-ls3399
           - rockchip_tpm312
