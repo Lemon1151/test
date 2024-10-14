@@ -71,8 +71,12 @@ jobs:
           sudo -E apt-get -qq autoremove --purge
           sudo -E apt-get -qq clean
           sudo timedatectl set-timezone "$TZ"
+          sudo mkdir -p /mnt/workdir
+          sudo chown $USER:$GROUPS /mnt/workdir
+          df -Th
 
       - name: Clone source code [ ${{ inputs.source_branch }} ]
+        working-directory: /mnt/workdir
         id: codes
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
@@ -96,7 +100,7 @@ jobs:
 
           # Clone source code
           git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
-          ln -sf ${GITHUB_WORKSPACE}/openwrt ${GITHUB_WORKSPACE}/openwrt
+          ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
           # Set output information
           echo "build_tag=OpenWrt_${TAGS_NAME}_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
