@@ -78,11 +78,11 @@ echo -e "\\ndefine Device/rockchip_tpm312
   DEVICE_VENDOR := Rockchip
   DEVICE_MODEL := TPM312
   SOC := rk3399
-  SUPPORTED_DEVICES := rockchip,tpm312
   UBOOT_DEVICE_NAME := tpm312-rk3399
   IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-rtl8821ae
 endef
-TARGET_DEVICES += rk3399_tpm312" >> target/linux/rockchip/image/armv8.mk
+TARGET_DEVICES += rockchip_tpm312" >> target/linux/rockchip/image/armv8.mk
 
 # 复制patch到对应的目录
 cp -f $GITHUB_WORKSPACE/config/lede-master/etc/105-add-new-board-tpm312-uboot.patch package/boot/uboot-rockchip/patches/105-add-new-board-tpm312-uboot.patch
