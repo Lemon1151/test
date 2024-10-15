@@ -69,8 +69,6 @@ git clone --depth=1 https://github.com/destan19/OpenAppFilter
 #
 # ------------------------------- Other ends -------------------------------
 
-sed -i 's/rsb4810-rk3568/advantech-rsb4810-rk3568/g' package/boot/uboot-rockchip/Makefile
-
 # uboot-rockchip/Makefile添加tpm312设备型号
 sed -i '/^# RK3566 boards/i\
 define U-Boot/tpm312-rk3399\n\  $(U-Boot/rk3399/Default)\n\  NAME:=TPM312\n\  BUILD_DEVICES:= \\\n\    rockchip_tpm312\n\  DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3399\n\  ATF:=rk3399_bl31.elf\n\endef\n' package/boot/uboot-rockchip/Makefile
