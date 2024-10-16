@@ -171,12 +171,12 @@ jobs:
           find bin/targets/rockchip/ -type f -name '*.gz' -exec cp -f {} output/ \;
           # cp -f bin/targets/*/*/*.gz output/
           cp -f .config output/config
-          rm -rf $(ls . | grep -v "^output$" | xargs) 2>/dev/null
+          # rm -rf $(ls . | grep -v "^output$" | xargs) 2>/dev/null
 
           # Generate sha256sum file
           cd output/
           for file in *; do [[ ! -d "${file}" ]] && sha256sum "${file}" >"${file}.sha"; done
-          ls -lh output/
+          ls -lh .
 
           # Set output information
           df -hT ${PWD}
