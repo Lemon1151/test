@@ -144,6 +144,27 @@ jobs:
           ${GITHUB_WORKSPACE}/${DIY_P2_SH}
           ls -la
 
+      - name: Verify Configuration Items
+        id: verify_config
+        run: |
+          # 检查配置项是否存在于 .config 文件中
+          for item in \
+            "CONFIG_TARGET_rockchip_armv8=y" \
+            "CONFIG_TARGET_rockchip_armv8_DEVICE_${{ inputs.openwrt_board }}=y" \
+            "CONFIG_TARGET_SUBTARGET=\"armv8\"" \
+            "CONFIG_TARGET_PROFILE=\"DEVICE_${{ inputs.openwrt_board }}\"" \
+            "CONFIG_TARGET_ARCH_PACKAGES=\"aarch64_generic\"" \
+            "CONFIG_DEFAULT_TARGET_OPTIMIZATION=\"-Os -pipe -mcpu=generic\"" \
+            "CONFIG_CPU_TYPE=\"generic\"" \
+          ; do
+            if ! grep -q "$item" .config; then
+              echo "Error: Configuration item '$item' not found in .config"
+              exit 1
+            fi
+          done
+          echo "All configuration items are present in .config"
+          echo "status=success" >> ${GITHUB_OUTPUT}
+
       - name: Download package
         id: package
         run: |
@@ -155,6 +176,7 @@ jobs:
       
       - name: Compile the OpenWrt
         id: compile
+        if: ${{ steps.verify_config.outputs.status }} == 'success' && !cancelled()
         run: |
           cd openwrt/
           df -Th
