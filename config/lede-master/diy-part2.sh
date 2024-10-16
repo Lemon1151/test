@@ -94,8 +94,8 @@ cp -f $GITHUB_WORKSPACE/config/lede-master/etc/995-rockchip-rk3399-tpm312-kernel
 rockchip_subtarget="${SUBTARGET:-rk33xx}"                      # 如果没有提供，默认为 rk33xx  
 openwrt_board="${SOURCE_BOARD:-friendlyarm_nanopi-r4se}"       # 如果没有提供，默认为 friendlyarm_nanopi-r4se  
   
-# 配置文件路径（这里假设它是相对于脚本的某个位置）  
-config_file=.config  # 请替换为实际的文件路径  
+# 配置文件路径  
+config_file=.config
 
 # 确认配置文件存在
 if [ ! -f "$config_file" ]; then
