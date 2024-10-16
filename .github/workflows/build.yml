@@ -172,7 +172,6 @@ jobs:
           # cp -f bin/targets/*/*/*.gz output/
           cp -f .config output/config
           rm -rf $(ls . | grep -v "^output$" | xargs) 2>/dev/null
-          # 列出 output/ 目录下的所有内容
 
           # Generate sha256sum file
           cd output/
