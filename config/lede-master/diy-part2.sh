@@ -95,7 +95,7 @@ rockchip_subtarget="${SUBTARGET:-rk33xx}"                      # 如果没有提
 openwrt_board="${SOURCE_BOARD:-friendlyarm_nanopi-r4se}"       # 如果没有提供，默认为 friendlyarm_nanopi-r4se  
   
 # 配置文件路径（这里假设它是相对于脚本的某个位置）  
-config_file=${GITHUB_WORKSPACE}/${DIY_P2_SH}  # 请替换为实际的文件路径  
+config_file=/mnt/workdir/openwrt/.config  # 请替换为实际的文件路径  
 
 # 确认配置文件存在
 if [ ! -f "$config_file" ]; then
