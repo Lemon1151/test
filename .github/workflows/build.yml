@@ -188,6 +188,7 @@ jobs:
       - name: Verify Configuration Items
         id: verify_config
         run: |
+          cd openwrt/
           # 检查配置项是否存在于 .config 文件中
           for item in \
             "CONFIG_TARGET_rockchip_armv8=y" \
