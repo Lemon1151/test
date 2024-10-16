@@ -135,13 +135,13 @@ jobs:
 
       - name: Load custom configuration
         run: |
+          ls -la openwrt
           [[ -d "files" ]] && mv -f files openwrt/files
-          [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
           chmod +x ${DIY_P2_SH}
           echo "Using SOURCE_BRANCH: ${{ inputs.source_branch }} in DIY_P2_SH" 
-          cd openwrt/
-          ls -la
           ${GITHUB_WORKSPACE}/${DIY_P2_SH}
+          [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
+          ls -la openwrt
 
       - name: Download package
         id: package
