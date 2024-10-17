@@ -147,24 +147,24 @@ jobs:
           # 根据 subtarget 构建配置字符串
           if [[ "$SUBTARGET" == "rk35xx" ]] && [[ "$BRANCH" == "istoreos-istoreos-22.03" ]]; then
             target_config="
-            CONFIG_TARGET_rockchip_rk35xx=y
-            CONFIG_TARGET_rockchip_rk35xx_DEVICE_$SOURCE_BOARD=y
-            CONFIG_TARGET_SUBTARGET=\"rk35xx\"
-            CONFIG_TARGET_PROFILE=\"DEVICE_$SOURCE_BOARD\"
-            CONFIG_TARGET_ARCH_PACKAGES=\"aarch64_cortex-a53\"
-            CONFIG_DEFAULT_TARGET_OPTIMIZATION=\"-Os -pipe -mcpu=cortex-a53\"
-            CONFIG_CPU_TYPE=\"cortex-a53\"
-            "
+          CONFIG_TARGET_rockchip_rk35xx=y
+          CONFIG_TARGET_rockchip_rk35xx_DEVICE_$SOURCE_BOARD=y
+          CONFIG_TARGET_SUBTARGET=\"rk35xx\"
+          CONFIG_TARGET_PROFILE=\"DEVICE_$SOURCE_BOARD\"
+          CONFIG_TARGET_ARCH_PACKAGES=\"aarch64_cortex-a53\"
+          CONFIG_DEFAULT_TARGET_OPTIMIZATION=\"-Os -pipe -mcpu=cortex-a53\"
+          CONFIG_CPU_TYPE=\"cortex-a53\"
+          "
           else
             target_config="
-            CONFIG_TARGET_rockchip_armv8=y
-            CONFIG_TARGET_rockchip_armv8_DEVICE_$SOURCE_BOARD=y
-            CONFIG_TARGET_SUBTARGET=\"armv8\"
-            CONFIG_TARGET_PROFILE=\"DEVICE_$SOURCE_BOARD\"
-            CONFIG_TARGET_ARCH_PACKAGES=\"aarch64_generic\"
-            CONFIG_DEFAULT_TARGET_OPTIMIZATION=\"-Os -pipe -mcpu=generic\"
-            CONFIG_CPU_TYPE=\"generic\"
-            "
+          CONFIG_TARGET_rockchip_armv8=y
+          CONFIG_TARGET_rockchip_armv8_DEVICE_$SOURCE_BOARD=y
+          CONFIG_TARGET_SUBTARGET=\"armv8\"
+          CONFIG_TARGET_PROFILE=\"DEVICE_$SOURCE_BOARD\"
+          CONFIG_TARGET_ARCH_PACKAGES=\"aarch64_generic\"
+          CONFIG_DEFAULT_TARGET_OPTIMIZATION=\"-Os -pipe -mcpu=generic\"
+          CONFIG_CPU_TYPE=\"generic\"
+          "
           fi
 
           # 定义一个函数来将配置添加到文件开头（如果尚未存在）
