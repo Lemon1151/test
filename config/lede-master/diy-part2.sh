@@ -70,9 +70,10 @@ git clone --depth=1 https://github.com/destan19/OpenAppFilter
 # ------------------------------- Other ends -------------------------------
 
 # uboot-rockchip/Makefile添加tpm312设备型号
-sed -i '/^# RK3566 boards/i\
-define U-Boot/tpm312-rk3399\n\  $(U-Boot/rk3399/Default)\n\  NAME:=TPM312\n\  BUILD_DEVICES:= \\\n\    rockchip_tpm312\n\  DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3399\n\  ATF:=rk3399_bl31.elf\n\endef\n' package/boot/uboot-rockchip/Makefile
+# sed -i '/^# RK3566 boards/i\
+# define U-Boot/tpm312-rk3399\n\  $(U-Boot/rk3399/Default)\n\  NAME:=TPM312\n\  BUILD_DEVICES:= \\\n\    rockchip_tpm312\n\  DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3399\n\  ATF:=rk3399_bl31.elf\n\endef\n' package/boot/uboot-rockchip/Makefile
 
+# 移植设备
 # linux/rockchip/image/armv8.mk添加tpm312设备型号
 echo -e "\\ndefine Device/rockchip_tpm312
   DEVICE_VENDOR := Rockchip
@@ -83,6 +84,9 @@ echo -e "\\ndefine Device/rockchip_tpm312
   DEVICE_PACKAGES := kmod-rtl8821ae
 endef
 TARGET_DEVICES += rockchip_tpm312" >> target/linux/rockchip/image/armv8.mk
+
+#复制修改好的uboot/Makefile到对应目录
+cp -f $GITHUB_WORKSPACE/config/lede-master/etc/u-boot-Makefile package/boot/uboot-rockchip/Makefile
 
 # 复制patch到对应的目录
 cp -f $GITHUB_WORKSPACE/config/lede-master/etc/105-add-new-board-tpm312-uboot.patch package/boot/uboot-rockchip/patches/105-add-new-board-tpm312-uboot.patch
