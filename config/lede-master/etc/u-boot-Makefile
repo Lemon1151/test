@@ -339,8 +339,8 @@ UBOOT_TARGETS := \
   nanopi-r4se-rk3399 \
   rock-pi-4-rk3399 \
   rockpro64-rk3399 \
-  rockchip-tpm312-rk3399 \
   sv901-eaio-rk3399 \
+  tpm312-rk3399 \
   guangmiao-g4c-rk3399 \
   xiaobao-nas-v1-rk3399 \
   nanopi-r2c-rk3328 \
