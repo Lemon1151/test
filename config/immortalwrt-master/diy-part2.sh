@@ -87,8 +87,8 @@ endef
 TARGET_DEVICES += rockchip_tpm312" >> target/linux/rockchip/image/armv8.mk
 
 #复制修改好的uboot/Makefile到对应目录
-cp -f $GITHUB_WORKSPACE/config/lede-master/etc/u-boot-Makefile package/boot/uboot-rockchip/Makefile
+cp -f $GITHUB_WORKSPACE/config/immortalwrt-master/etc/u-boot-Makefile package/boot/uboot-rockchip/Makefile
 
 # 复制patch到对应的目录
-cp -f $GITHUB_WORKSPACE/config/lede-master/etc/105-add-new-board-tpm312-uboot.patch package/boot/uboot-rockchip/patches/105-add-new-board-tpm312-uboot.patch
-cp -f $GITHUB_WORKSPACE/config/lede-master/etc/995-rockchip-rk3399-tpm312-kernel.patch target/linux/rockchip/patches-6.6/995-rockchip-rk3399-tpm312-kernel.patch
+cp -f $GITHUB_WORKSPACE/config/immortalwrt-master/etc/105-add-new-board-tpm312-uboot.patch package/boot/uboot-rockchip/patches/105-add-new-board-tpm312-uboot.patch
+cp -f $GITHUB_WORKSPACE/config/immortalwrt-master/etc/995-rockchip-rk3399-tpm312-kernel.patch target/linux/rockchip/patches-6.6/995-rockchip-rk3399-tpm312-kernel.patch
