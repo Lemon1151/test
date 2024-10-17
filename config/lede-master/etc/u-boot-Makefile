@@ -176,7 +176,7 @@ define U-Boot/tpm312-rk3399
     rockchip_tpm312
   DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3399
   ATF:=rk3399_bl31.elf
-  endef
+endef
 
 # RK3566 boards
 
