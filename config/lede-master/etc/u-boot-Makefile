@@ -169,6 +169,15 @@ define U-Boot/sv901-eaio-rk3399
   USE_RKBIN:=1
 endef
 
+define U-Boot/tpm312-rk3399
+  $(U-Boot/rk3399/Default)
+  NAME:=TPM312
+  BUILD_DEVICES:= \
+    rockchip_tpm312
+  DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3399
+  ATF:=rk3399_bl31.elf
+  endef
+
 # RK3566 boards
 
 define U-Boot/rk3566/Default
@@ -330,6 +339,7 @@ UBOOT_TARGETS := \
   nanopi-r4se-rk3399 \
   rock-pi-4-rk3399 \
   rockpro64-rk3399 \
+  rockchip-tpm312-rk3399 \
   sv901-eaio-rk3399 \
   guangmiao-g4c-rk3399 \
   xiaobao-nas-v1-rk3399 \
