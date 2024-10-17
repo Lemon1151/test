@@ -383,6 +383,7 @@ UBOOT_TARGETS := \
   nanopi-r4se-rk3399 \
   rock-pi-4-rk3399 \
   rockpro64-rk3399 \
+  rockchip-tpm312-rk3399 \
   rock-pi-s-rk3308 \
   nanopi-r2c-rk3328 \
   nanopi-r2c-plus-rk3328 \
