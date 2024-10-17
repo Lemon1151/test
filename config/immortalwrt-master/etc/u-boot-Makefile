@@ -160,6 +160,12 @@ define U-Boot/rockpro64-rk3399
     pine64_rockpro64
 endef
 
+define U-Boot/tpm312-rk3399
+  $(U-Boot/rk3399/Default)
+  NAME:=TPM312
+  BUILD_DEVICES:= \
+    rockchip_tpm312
+endef
 
 # RK3566 boards
 
