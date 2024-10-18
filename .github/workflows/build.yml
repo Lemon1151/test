@@ -24,7 +24,7 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "all"
+        default: "rockchip_tpm312"
         type: choice
         options:
           - friendlyarm_nanopi-r4se
